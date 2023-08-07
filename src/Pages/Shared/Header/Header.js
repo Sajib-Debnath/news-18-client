@@ -3,12 +3,10 @@ import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
-import Button from 'react-bootstrap/Button';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -22,11 +20,11 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand><Link to='/'>Dragon News</Link></Navbar.Brand>
+                <Navbar.Brand><Link to='/'>News 18</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">All News</Nav.Link>
+                        <Nav.Link >All News</Nav.Link>
                     </Nav>
                     <Nav>
                         <>
@@ -34,12 +32,12 @@ const Header = () => {
                                 user?.uid ?
                                     <>
                                         <span >{user?.displayName}</span>
-                                        <span style={{ cursor: 'pointer',  }} className='mx-3 ' variant="light" onClick={handleLogOut}>Log out</span>
+                                        <span style={{ cursor: 'pointer', }} className='mx-3 ' variant="light" onClick={handleLogOut}>Log out</span>
                                     </>
                                     :
                                     <>
-                                        <Link to='/login'>Login</Link>
-                                        <Link to='/register'>Register</Link>
+                                        <Link to='/login' className='mx-1'>Login</Link>
+                                        <Link to='/register' className='mx-3'>Register</Link>
                                     </>
                             }
 
@@ -52,7 +50,7 @@ const Header = () => {
                                     roundedCircle
                                     src={user?.photoURL}>
                                 </Image>
-                                : <FaUser></FaUser>
+                                : <FaUser className=''></FaUser>
                             }
                         </Link>
                     </Nav>

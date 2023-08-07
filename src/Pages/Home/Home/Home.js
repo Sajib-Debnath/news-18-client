@@ -6,14 +6,16 @@ import NewsSummaryCard from '../../Shared/NewsSummaryCard/NewsSummaryCard';
 const Home = () => {
     const allNews = useLoaderData();
     useTitle('Home')
+    
     return (
         <div>
             <h2>News 18 Home: {allNews.length}</h2>
             {
-                allNews.map(news => <NewsSummaryCard
-                    key={news._id}
-                    news={news}
-                ></NewsSummaryCard>)
+                allNews.map(news =>
+                    <NewsSummaryCard
+                        key={news._id}
+                        news={news}
+                    ></NewsSummaryCard>)
             }
         </div>
     );
